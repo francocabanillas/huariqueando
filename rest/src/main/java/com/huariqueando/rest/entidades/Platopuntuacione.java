@@ -13,10 +13,9 @@ import javax.persistence.*;
 public class Platopuntuacione implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long idcliente;
 
-	private int idplato;
+	private Long idplato;
 
 	private byte puntuacion;
 
@@ -38,11 +37,11 @@ public class Platopuntuacione implements Serializable {
 		this.idcliente = idcliente;
 	}
 
-	public int getIdplato() {
+	public Long getIdplato() {
 		return idplato;
 	}
 
-	public void setIdplato(int idplato) {
+	public void setIdplato(Long idplato) {
 		this.idplato = idplato;
 	}
 

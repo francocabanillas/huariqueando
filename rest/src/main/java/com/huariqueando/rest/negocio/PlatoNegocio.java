@@ -9,5 +9,7 @@ import org.springframework.stereotype.Service;
 public class PlatoNegocio {
     @Autowired
     private PlatoRepositorio platoRepositorio;
+
+
     
 }
