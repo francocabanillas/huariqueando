@@ -14,7 +14,8 @@ import java.util.Date;
 public class Platosluego implements Serializable {
 
 	@Id
-	private int id;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private Long id;
 
 	@Temporal(TemporalType.DATE)
 	private Date fecha;
@@ -29,11 +30,11 @@ public class Platosluego implements Serializable {
 	@JoinColumn(name="platos_id")
 	private Plato plato;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

@@ -13,7 +13,8 @@ import javax.persistence.*;
 public class Platopuntuacione implements Serializable {
 
 	@Id
-	private int idcliente;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private Long idcliente;
 
 	private int idplato;
 
@@ -29,11 +30,11 @@ public class Platopuntuacione implements Serializable {
 	@JoinColumn(name="platos_id")
 	private Plato plato;
 
-	public int getIdcliente() {
+	public Long getIdcliente() {
 		return idcliente;
 	}
 
-	public void setIdcliente(int idcliente) {
+	public void setIdcliente(Long idcliente) {
 		this.idcliente = idcliente;
 	}
 

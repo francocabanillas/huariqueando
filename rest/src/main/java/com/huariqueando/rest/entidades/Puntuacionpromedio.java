@@ -13,8 +13,9 @@ import javax.persistence.*;
 public class Puntuacionpromedio implements Serializable {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name="platos_id")
-	private int platosId;
+	private Long platosId;
 
 	private byte promedio;
 
@@ -23,11 +24,11 @@ public class Puntuacionpromedio implements Serializable {
 	@JoinColumn(name="platos_id")
 	private Plato plato;
 
-	public int getPlatosId() {
+	public Long getPlatosId() {
 		return platosId;
 	}
 
-	public void setPlatosId(int platosId) {
+	public void setPlatosId(Long platosId) {
 		this.platosId = platosId;
 	}
 

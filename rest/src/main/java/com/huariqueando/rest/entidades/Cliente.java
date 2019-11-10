@@ -14,7 +14,8 @@ import java.util.List;
 //@NamedQuery(name="Cliente.findAll", query="SELECT c FROM Cliente c")
 public class Cliente implements Serializable {
 	@Id
-	private int id;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private Long id;
 	private String correo;
 
 	private String nombre;
@@ -59,11 +60,11 @@ public class Cliente implements Serializable {
 		this.platosluegos = platosluegos;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

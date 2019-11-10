@@ -17,7 +17,8 @@ public class Clienteacceso implements Serializable {
 
 
 	@Id
-	private int idcliente;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private Long idcliente;
 
 	private String clave;
 
@@ -28,11 +29,11 @@ public class Clienteacceso implements Serializable {
 	@JoinColumn(name="clientes_id")
 	private Cliente cliente;
 
-	public int getIdcliente() {
+	public Long getIdcliente() {
 		return idcliente;
 	}
 
-	public void setIdcliente(int idcliente) {
+	public void setIdcliente(Long idcliente) {
 		this.idcliente = idcliente;
 	}
 
