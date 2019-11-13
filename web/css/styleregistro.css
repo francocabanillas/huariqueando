@@ -1,0 +1,41 @@
+/*-------------------------------------------------------------
+                    HEADER STYLES
+---------------------------------------------------------------*/
+.navbar-brand {
+	color: #393f4a !important;
+	margin: 0;
+	font-size: 42px;
+	font-family: Pacifico;
+	-webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-o-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}
+
+/*----------------------banner--------------------*/
+.header
+{
+	background-color: #f8bc3b;
+	height: 100px;
+}
+/*----------------------body--------------------*/
+.body
+{
+	background-color: #f8bc3b;
+	height: 350px;
+}
+
+/*----------------google_map--------------------*/
+.google_map
+{
+    background-color: #f8bc3b;
+    height: 350px;
+
+}
+/*----------------footer--------------------*/
+.footer
+{
+    background-color: #f8bc3b;
+    height: 120px;
+
+}
