@@ -18,6 +18,8 @@ public class Restaurante implements Serializable {
 
 	private String direccion;
 
+	private String correo;
+
 	private String identificacion;
 
 	private float latitud;
@@ -30,7 +32,7 @@ public class Restaurante implements Serializable {
 
 	private String token;
 
-	private byte validado;
+	private Boolean validado;
 
 	//bi-directional many-to-one association to Plato
 	@OneToMany(mappedBy="restaurante")
@@ -100,12 +102,20 @@ public class Restaurante implements Serializable {
 		this.token = token;
 	}
 
-	public byte getValidado() {
+	public Boolean getValidado() {
 		return validado;
 	}
 
-	public void setValidado(byte validado) {
+	public void setValidado(Boolean validado) {
 		this.validado = validado;
+	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
 	}
 
 	public List<Plato> getPlatos() {
