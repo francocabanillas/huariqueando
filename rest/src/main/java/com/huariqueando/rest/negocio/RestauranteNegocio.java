@@ -2,9 +2,8 @@ package com.huariqueando.rest.negocio;
 
 import com.huariqueando.rest.entidades.Restaurante;
 import com.huariqueando.rest.entidades.RestauranteRegistro;
-import com.huariqueando.rest.entidades.Restauranteacceso;
-import com.huariqueando.rest.repositorio.ClienteRepositorio;
 import com.huariqueando.rest.repositorio.RestauranteRepositorio;
+import com.huariqueando.rest.util.AccesoUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +13,20 @@ import java.util.List;
 public class RestauranteNegocio {
     @Autowired
     private RestauranteRepositorio restauranteRepositorio;
-    @Autowired
-    private RestauranteaccesoNegocio restauranteaccesoNegocio;
+
+    private AccesoUtil accesoUtil;
 
     public Restaurante registrarRestaurante(Restaurante restaurante){
         return restauranteRepositorio.save(restaurante);
     }
+
+
+    public boolean existeNombreUsuario(String nombreUsuario){
+        List<Restaurante> list;
+        list = restauranteRepositorio.ExisteNombreUsuario(nombreUsuario);
+        return !(list.isEmpty());
+    }
+
 
     public Restaurante editarRestaurante(Restaurante restaurante){
         Restaurante actual = restauranteRepositorio.findById(restaurante.getId()).get();
@@ -34,9 +41,7 @@ public class RestauranteNegocio {
         return !(restauranteRepositorio.obtenerRestaurantePorCorreo(correo).isEmpty());
     }
 
-    public RestauranteRegistro registrarRestauranteInicial(RestauranteRegistro restauranteRegistro){
-
-
+    private RestauranteRegistro ValidarRegistro(RestauranteRegistro restauranteRegistro){
         if (restauranteRegistro.getCorreo().isEmpty()){
             restauranteRegistro.setEstado(RestauranteRegistro.tipoEstado.correoVacio);
             return restauranteRegistro;
@@ -52,7 +57,7 @@ public class RestauranteNegocio {
             return restauranteRegistro;
         }
 
-        if (restauranteaccesoNegocio.existeNombreUsuario(restauranteRegistro.getUsuario()))
+        if (existeNombreUsuario(restauranteRegistro.getUsuario()))
         {
             restauranteRegistro.setEstado(RestauranteRegistro.tipoEstado.existeUsuario);;
             return restauranteRegistro;
@@ -64,27 +69,28 @@ public class RestauranteNegocio {
             return restauranteRegistro;
         }
 
+        return restauranteRegistro;
+    }
+
+    public RestauranteRegistro registrarRestauranteInicial(RestauranteRegistro restauranteRegistro){
+
+
+        restauranteRegistro = ValidarRegistro(restauranteRegistro);
+
+        if (!restauranteRegistro.getEstado().equals(RestauranteRegistro.tipoEstado.pendiente)){
+            return restauranteRegistro;
+        }
+
         Restaurante restaurante = new Restaurante();
-        Restauranteacceso restauranteacceso = new Restauranteacceso();
 
         restaurante.setCorreo(restauranteRegistro.getCorreo());
         restaurante.setNombre(restauranteRegistro.getUsuario());
         restaurante.setValidado(false);
-
+        restaurante.setUsuario(restauranteRegistro.getUsuario());
+        restaurante.setClave(restauranteRegistro.getClave());
         restauranteRegistro.setRestaurante(restauranteRepositorio.save(restaurante));
 
-        if (restauranteRegistro.getRestaurante()!=null){
-
-            restauranteacceso.setIdrestaurante(restauranteRegistro.getRestaurante().getId());
-            restauranteacceso.setRestaurante(restauranteRegistro.getRestaurante());
-            restauranteacceso.setUsuario(restauranteRegistro.getUsuario());
-            restauranteacceso.setClave(restauranteRegistro.getClave());
-
-            restauranteRegistro.setRestauranteacceso(restauranteaccesoNegocio.registrar(restauranteacceso));
-
-        }
-
-       if ((restauranteRegistro.getRestaurante()!=null)||(restauranteRegistro.getRestauranteacceso()!=null)){
+       if (restauranteRegistro.getRestaurante()!=null){
            restauranteRegistro.setEstado(RestauranteRegistro.tipoEstado.registroExitoso);
            return restauranteRegistro;
         }else
@@ -112,14 +118,21 @@ public class RestauranteNegocio {
     }
 
 
-    public Restaurante actualizar(Restaurante restaurante) {
+    public Restaurante actualizarRestaurante(Restaurante restaurante) {
         Restaurante p = restauranteRepositorio.findById(restaurante.getId()).get();
         if (p != null) {
+            restaurante.setUsuario(p.getUsuario());
+            restaurante.setClave(p.getClave());
+            restaurante.setCorreo(p.getCorreo());
+            restaurante.setToken(p.getToken());
+            restaurante.setPlatos(p.getPlatos());
+            restaurante.setValidado(p.getValidado());
             return restauranteRepositorio.save(restaurante);
         } else {
             return null;
         }
     }
+
 
 
 

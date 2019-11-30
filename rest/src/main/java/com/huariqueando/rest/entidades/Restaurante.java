@@ -12,27 +12,45 @@ import java.util.List;
 @Entity
 @Table(name="restaurantes")
 public class Restaurante implements Serializable {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
-
 	private String direccion;
-
 	private String correo;
-
 	private String identificacion;
-
-	private float latitud;
-
-	private float longitud;
-
 	private String nombre;
-
 	private String telefono;
-
+	private String distrito;
+	private String usuario;
+	private String clave;
 	private String token;
 
 	private Boolean validado;
+
+	public String getDistrito() {
+		return distrito;
+	}
+
+	public void setDistrito(String distrito) {
+		this.distrito = distrito;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getClave() {
+		return clave;
+	}
+
+	public void setClave(String clave) {
+		this.clave = clave;
+	}
 
 	//bi-directional many-to-one association to Plato
 	@OneToMany(mappedBy="restaurante")
@@ -60,22 +78,6 @@ public class Restaurante implements Serializable {
 
 	public void setIdentificacion(String identificacion) {
 		this.identificacion = identificacion;
-	}
-
-	public float getLatitud() {
-		return latitud;
-	}
-
-	public void setLatitud(float latitud) {
-		this.latitud = latitud;
-	}
-
-	public float getLongitud() {
-		return longitud;
-	}
-
-	public void setLongitud(float longitud) {
-		this.longitud = longitud;
 	}
 
 	public String getNombre() {

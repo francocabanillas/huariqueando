@@ -21,35 +21,69 @@ public class Plato implements Serializable {
 
 	private double precio;
 
-	//bi-directional many-to-one association to Platopuntuacione
-	@OneToMany(mappedBy="plato")
-	private List<Platopuntuacione> platopuntuaciones;
+	private String etiqueta;
+	private String etiqueta2;
+	private String etiqueta3;
+	private String etiqueta4;
+	private String etiqueta5;
+	private double puntuacion;
+
+	public double getPuntuacion() {
+		return puntuacion;
+	}
+
+	public void setPuntuacion(double puntuacion) {
+		this.puntuacion = puntuacion;
+	}
+
+	public String getEtiqueta() {
+		return etiqueta;
+	}
+
+	public void setEtiqueta(String etiqueta) {
+		this.etiqueta = etiqueta;
+	}
+
+	public String getEtiqueta2() {
+		return etiqueta2;
+	}
+
+	public void setEtiqueta2(String etiqueta2) {
+		this.etiqueta2 = etiqueta2;
+	}
+
+	public String getEtiqueta3() {
+		return etiqueta3;
+	}
+
+	public void setEtiqueta3(String etiqueta3) {
+		this.etiqueta3 = etiqueta3;
+	}
+
+	public String getEtiqueta4() {
+		return etiqueta4;
+	}
+
+	public void setEtiqueta4(String etiqueta4) {
+		this.etiqueta4 = etiqueta4;
+	}
+
+	public String getEtiqueta5() {
+		return etiqueta5;
+	}
+
+	public void setEtiqueta5(String etiqueta5) {
+		this.etiqueta5 = etiqueta5;
+	}
 
 	//bi-directional many-to-one association to Restaurante
 	@ManyToOne
 	@JoinColumn(name="restaurantes_id")
 	private Restaurante restaurante;
 
-	//bi-directional many-to-many association to Etiqueta
-	@ManyToMany
-	@JoinTable(
-		name="platosetiquetas"
-		, joinColumns={
-			@JoinColumn(name="platos_id")
-			}
-		, inverseJoinColumns={
-			@JoinColumn(name="etiquetas_id")
-			}
-		)
-	private List<Etiqueta> etiquetas;
-
-	//bi-directional many-to-one association to Platosluego
+	//bi-directional many-to-one association to Platospendiente
 	@OneToMany(mappedBy="plato")
-	private List<Platosluego> platosluegos;
-
-	//bi-directional one-to-one association to Puntuacionpromedio
-	@OneToOne(mappedBy="plato")
-	private Puntuacionpromedio puntuacionpromedio;
+	private List<Platopendiente> platopendientes;
 
 	public Long getId() {
 		return id;
@@ -75,14 +109,6 @@ public class Plato implements Serializable {
 		this.precio = precio;
 	}
 
-	public List<Platopuntuacione> getPlatopuntuaciones() {
-		return platopuntuaciones;
-	}
-
-	public void setPlatopuntuaciones(List<Platopuntuacione> platopuntuaciones) {
-		this.platopuntuaciones = platopuntuaciones;
-	}
-
 	public Restaurante getRestaurante() {
 		return restaurante;
 	}
@@ -91,27 +117,14 @@ public class Plato implements Serializable {
 		this.restaurante = restaurante;
 	}
 
-	public List<Etiqueta> getEtiquetas() {
-		return etiquetas;
+	public List<Platopendiente> getPlatosluegos() {
+		return platopendientes;
 	}
 
-	public void setEtiquetas(List<Etiqueta> etiquetas) {
-		this.etiquetas = etiquetas;
+	public void setPlatosluegos(List<Platopendiente> platosluegos) {
+		this.platopendientes = platosluegos;
 	}
 
-	public List<Platosluego> getPlatosluegos() {
-		return platosluegos;
-	}
 
-	public void setPlatosluegos(List<Platosluego> platosluegos) {
-		this.platosluegos = platosluegos;
-	}
 
-	public Puntuacionpromedio getPuntuacionpromedio() {
-		return puntuacionpromedio;
-	}
-
-	public void setPuntuacionpromedio(Puntuacionpromedio puntuacionpromedio) {
-		this.puntuacionpromedio = puntuacionpromedio;
-	}
 }

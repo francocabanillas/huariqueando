@@ -11,32 +11,54 @@
 	-o-transition: all .3s ease-in-out;
 	transition: all .3s ease-in-out;
 }
-
-/*----------------------banner--------------------*/
+/*------------------------------------------*/
 .header
 {
 	background-color: #f8bc3b;
 	height: 250px;
 }
-
-/*----------------------body--------------------*/
-.body
-{
+.body{
     width: 100%;
 	background-color: #f8bc3b;
     height: 400px;
     text-align: center;
+    display: block;
+
 }
-/*----------------------footer--------------------*/
+.input-group-addon {
+	width: 100%;
+	margin: 0 auto;
+	margin-top: 100px;
+}
+span {
+	cursor: pointer;
+}
+/*----------------------FOOTER--------------------*/
+
 .footer
 {
-	background-color: #f8bc3b;
-    height: 280px;
-    text-align: center;
-    float: none;
+	background-color: #2f2f2f;
+	height: 400px;
+
+}
+.footer p
+{
+	color: #fff;
+	font-size:  12px;
+	text-align: center;
+	line-height: 10px;
+	margin-top: 10px;
 }
 
-.footer h4{
-    text-align: center;
+.footer img
+{
+	display: block;
+	margin:100px  auto 0;
 
+}
+footer 
+{
+	background-color: #2f2f2f;
+	color: antiquewhite;
+	text-align: center;
 }

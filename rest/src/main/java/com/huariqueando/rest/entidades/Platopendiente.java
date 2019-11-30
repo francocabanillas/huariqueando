@@ -10,8 +10,8 @@ import java.util.Date;
  * 
  */
 @Entity
-@Table(name = "platosluego")
-public class Platosluego implements Serializable {
+@Table(name = "platospendientes")
+public class Platopendiente implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)

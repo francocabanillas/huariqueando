@@ -24,10 +24,11 @@ public class RestauranteREST {
         return restauranteNegocio.obtenerRestaurante(id);
     }
 
-    @PutMapping("/restaurante/actualizar")
-    public Restaurante actualizar(@RequestBody Restaurante restaurante){
+    @PutMapping("/restaurante/actualizar/{id}")
+    public Restaurante actualizarRestaurante(@PathVariable(value = "id") Long id, @RequestBody Restaurante restaurante){
         try {
-            return restauranteNegocio.actualizar(restaurante);
+            restaurante.setId(id);
+            return restauranteNegocio.actualizarRestaurante(restaurante);
         }
         catch (Exception e){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"No es posible actualizar");
