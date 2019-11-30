@@ -1,5 +1,6 @@
 package com.huariqueando.rest.negocio;
 
+import com.huariqueando.rest.entidades.Distrito;
 import com.huariqueando.rest.entidades.Restaurante;
 import com.huariqueando.rest.entidades.RestauranteRegistro;
 import com.huariqueando.rest.repositorio.RestauranteRepositorio;
@@ -125,7 +126,6 @@ public class RestauranteNegocio {
             restaurante.setClave(p.getClave());
             restaurante.setCorreo(p.getCorreo());
             restaurante.setToken(p.getToken());
-            restaurante.setPlatos(p.getPlatos());
             restaurante.setValidado(p.getValidado());
             return restauranteRepositorio.save(restaurante);
         } else {

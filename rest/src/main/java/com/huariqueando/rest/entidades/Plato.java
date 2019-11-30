@@ -26,7 +26,21 @@ public class Plato implements Serializable {
 	private String etiqueta3;
 	private String etiqueta4;
 	private String etiqueta5;
+	private Long distrito_id;
 	private double puntuacion;
+	//bi-directional many-to-one association to Restaurante
+	@ManyToOne
+	@JoinColumn(name="restaurantes_id")
+	private Restaurante restaurante;
+
+
+	public Long getDistrito_id() {
+		return distrito_id;
+	}
+
+	public void setDistrito_id(Long distrito_id) {
+		this.distrito_id = distrito_id;
+	}
 
 	public double getPuntuacion() {
 		return puntuacion;
@@ -76,15 +90,6 @@ public class Plato implements Serializable {
 		this.etiqueta5 = etiqueta5;
 	}
 
-	//bi-directional many-to-one association to Restaurante
-	@ManyToOne
-	@JoinColumn(name="restaurantes_id")
-	private Restaurante restaurante;
-
-	//bi-directional many-to-one association to Platospendiente
-	@OneToMany(mappedBy="plato")
-	private List<Platopendiente> platopendientes;
-
 	public Long getId() {
 		return id;
 	}
@@ -116,15 +121,5 @@ public class Plato implements Serializable {
 	public void setRestaurante(Restaurante restaurante) {
 		this.restaurante = restaurante;
 	}
-
-	public List<Platopendiente> getPlatosluegos() {
-		return platopendientes;
-	}
-
-	public void setPlatosluegos(List<Platopendiente> platosluegos) {
-		this.platopendientes = platosluegos;
-	}
-
-
 
 }

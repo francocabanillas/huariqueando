@@ -27,17 +27,8 @@ public class Cliente implements Serializable {
 
 	private byte validado;
 
-	//bi-directional many-to-one association to Platosluego
-	@OneToMany(mappedBy="cliente")
-	private List<Platopendiente> platopendientes;
 
-	public List<Platopendiente> getPlatosluegos() {
-		return platopendientes;
-	}
 
-	public void setPlatosluegos(List<Platopendiente> platosluegos) {
-		this.platopendientes = platosluegos;
-	}
 
 	public Long getId() {
 		return id;
@@ -78,4 +69,5 @@ public class Cliente implements Serializable {
 	public void setValidado(byte validado) {
 		this.validado = validado;
 	}
+
 }

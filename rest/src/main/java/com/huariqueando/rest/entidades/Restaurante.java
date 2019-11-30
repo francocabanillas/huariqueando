@@ -21,19 +21,19 @@ public class Restaurante implements Serializable {
 	private String identificacion;
 	private String nombre;
 	private String telefono;
-	private String distrito;
+	private Long distrito_id;
 	private String usuario;
 	private String clave;
 	private String token;
 
 	private Boolean validado;
 
-	public String getDistrito() {
-		return distrito;
+	public Long getDistrito_id() {
+		return distrito_id;
 	}
 
-	public void setDistrito(String distrito) {
-		this.distrito = distrito;
+	public void setDistrito_id(Long distrito_id) {
+		this.distrito_id = distrito_id;
 	}
 
 	public String getUsuario() {
@@ -51,10 +51,6 @@ public class Restaurante implements Serializable {
 	public void setClave(String clave) {
 		this.clave = clave;
 	}
-
-	//bi-directional many-to-one association to Plato
-	@OneToMany(mappedBy="restaurante")
-	private List<Plato> platos;
 
 	public Long getId() {
 		return id;
@@ -118,13 +114,5 @@ public class Restaurante implements Serializable {
 
 	public void setCorreo(String correo) {
 		this.correo = correo;
-	}
-
-	public List<Plato> getPlatos() {
-		return platos;
-	}
-
-	public void setPlatos(List<Plato> platos) {
-		this.platos = platos;
 	}
 }

@@ -1,7 +1,7 @@
 package com.huariqueando.rest.rest;
 
+import com.huariqueando.rest.entidades.Distrito;
 import com.huariqueando.rest.entidades.Plato;
-import com.huariqueando.rest.entidades.PlatoRegistro;
 import com.huariqueando.rest.entidades.Restaurante;
 import com.huariqueando.rest.negocio.PlatoNegocio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +20,18 @@ public class PlatoREST {
         return platoNegocio.obtenerRestaurantePlatos(id);
     }
 
+    @GetMapping("/restaurante/platosdistrito/{id}")
+    public List<Plato> obtenerRestauranteDistrito(@PathVariable(value = "id") Long id){
+        return platoNegocio.obtenerRestauranteDistrito(id);
+    }
 
-    @PostMapping("/platoregistro")
-    public Plato registrarPlatoRestaurante(@RequestBody PlatoRegistro platoRegistro){
-        return platoNegocio.registrarPlatoRestaurante(platoRegistro);
+
+    @PostMapping("/platoregistro/{id}")
+    public Plato registrarPlatoRestaurante(@PathVariable(value = "id") Long id,@RequestBody Plato plato){
+        Restaurante restaurante = new Restaurante();
+        restaurante.setId(id);
+        plato.setRestaurante(restaurante);
+        return platoNegocio.registrarPlatoRestaurante(plato);
     }
 
 }
