@@ -1,4 +1,12 @@
+import 'dart:convert';
+import 'package:http/http.dart'  as http;
 import 'package:flutter/foundation.dart';
+
+ Future<List> getData() async{
+    final response = await http.get("http://10.142.120.20/vteqweb/restAPP/listarCertificados.php");
+    return json.decode(response.body);
+  }//
+  
 
 FooditemList fooditemList = FooditemList(foodItems: [
   FoodItem(

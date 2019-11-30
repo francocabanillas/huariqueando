@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:huariqueando/bloc/cartlistBloc.dart';
 import 'package:huariqueando/bloc/listTileColorBloc.dart';
-import 'package:huariqueando/const/themeColor.dart';
 import 'package:huariqueando/model/food_item.dart';
 
 
@@ -91,6 +90,7 @@ class FirstHalf extends StatelessWidget {
           CustomAppBar(),
           SizedBox(height: 30),
           title(),
+          searchBar(),
         ],
       ),
     );
@@ -147,11 +147,11 @@ class Items extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 5),
               Container(
                   padding: EdgeInsets.only(
-                    left: leftAligned ? 20 : 0,
-                    right: leftAligned ? 0 : 20,
+                    left: leftAligned ? 5 : 0,
+                    right: leftAligned ? 0 : 5,
                   ),
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -162,11 +162,11 @@ class Items extends StatelessWidget {
                               child: Text(nombre,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w700,
-                                    fontSize: 18,
+                                    fontSize: 14,
                                   )),
                             ),
                           RatingBar(
-                                  initialRating: 3,
+                                  initialRating: 5,
                                   direction: Axis.horizontal,
                                   allowHalfRating: true,
                                   itemCount: 5,
@@ -200,7 +200,7 @@ Widget title() {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "Huariqueando",
+            "Huarique",
             style: TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 30,
@@ -215,6 +215,31 @@ Widget title() {
           ),
         ],
       )
+    ],
+  );
+}
+
+Widget searchBar() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: <Widget>[
+      Icon(
+        Icons.search,
+        color: Colors.black45,
+      ),
+      SizedBox(width: 20),
+      Expanded(
+        child: TextField(
+          decoration: InputDecoration(
+              hintText: "¿Qué se te antoja hoy?",
+              contentPadding: EdgeInsets.symmetric(vertical: 10),
+              hintStyle: TextStyle(
+                color: Colors.black87,
+              ),
+              border: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red))),
+        ),
+      ),
     ],
   );
 }
