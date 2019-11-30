@@ -20,45 +20,15 @@ public class Cliente implements Serializable {
 
 	private String nombre;
 
+	private String usuario;
+	private String clave;
+
 	private String token;
 
 	private byte validado;
 
-	//bi-directional many-to-one association to Clienteacceso
-	@OneToMany(mappedBy="cliente")
-	private List<Clienteacceso> clienteaccesos;
 
-	//bi-directional many-to-one association to Platopuntuacione
-	@OneToMany(mappedBy="cliente")
-	private List<Platopuntuacione> platopuntuaciones;
 
-	//bi-directional many-to-one association to Platosluego
-	@OneToMany(mappedBy="cliente")
-	private List<Platosluego> platosluegos;
-
-	public List<Clienteacceso> getClienteaccesos() {
-		return clienteaccesos;
-	}
-
-	public void setClienteaccesos(List<Clienteacceso> clienteaccesos) {
-		this.clienteaccesos = clienteaccesos;
-	}
-
-	public List<Platopuntuacione> getPlatopuntuaciones() {
-		return platopuntuaciones;
-	}
-
-	public void setPlatopuntuaciones(List<Platopuntuacione> platopuntuaciones) {
-		this.platopuntuaciones = platopuntuaciones;
-	}
-
-	public List<Platosluego> getPlatosluegos() {
-		return platosluegos;
-	}
-
-	public void setPlatosluegos(List<Platosluego> platosluegos) {
-		this.platosluegos = platosluegos;
-	}
 
 	public Long getId() {
 		return id;
@@ -99,4 +69,5 @@ public class Cliente implements Serializable {
 	public void setValidado(byte validado) {
 		this.validado = validado;
 	}
+
 }

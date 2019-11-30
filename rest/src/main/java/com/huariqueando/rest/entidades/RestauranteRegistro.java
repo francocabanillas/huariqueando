@@ -1,7 +1,7 @@
 package com.huariqueando.rest.entidades;
 
 public class RestauranteRegistro {
-    public enum tipoEstado {contraseñaCorta,existeUsuario,existeCorreo,Guardado, correoVacio,usuarioVacio,otrosErrores,
+    public enum tipoEstado {pendiente,contraseñaCorta,existeUsuario,existeCorreo,Guardado, correoVacio,usuarioVacio,otrosErrores,
     registroExitoso}
 
     private String usuario;
@@ -10,7 +10,13 @@ public class RestauranteRegistro {
     private tipoEstado Estado;
 
     private Restaurante restaurante;
-    private Restauranteacceso restauranteacceso;
+
+    public RestauranteRegistro() {
+        Estado=tipoEstado.pendiente;
+        usuario="";
+        clave="";
+        correo="";
+    }
 
     public String getUsuario() {
         return usuario;
@@ -52,11 +58,4 @@ public class RestauranteRegistro {
         this.restaurante = restaurante;
     }
 
-    public Restauranteacceso getRestauranteacceso() {
-        return restauranteacceso;
-    }
-
-    public void setRestauranteacceso(Restauranteacceso restauranteacceso) {
-        this.restauranteacceso = restauranteacceso;
-    }
 }

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ingresar</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,800,700italic,800italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,900,800' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans" rel="stylesheet">
+
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" href="css/ingresar.css">
+
+
+    <script>
+            $(document).on('ready', function() {
+                $('#show-hide-passwd').on('click', function(e) {
+                    e.preventDefault();
+                    var current = $(this).attr('action');
+                    if (current == 'hide') {
+                        $(this).prev().attr('type','text');
+                        $(this).removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close').attr('action','show');
+                    }
+                    if (current == 'show') {
+                        $(this).prev().attr('type','password');
+                        $(this).removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open').attr('action','hide');
+                    }
+                })
+            })
+        </script>
+</head>
+<body>
+        <header>
+                <section class="header">
+                    <div class="container"><br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a class="navbar-brand" href="#home">BIENVENIDO:</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </header>
+        <section class="body">
+                <div class="container">
+                        <div class="row">
+
+                                <div class="col-md-6">
+                                        <h5>Nombre de Usuario:</h5><br>
+
+                                        <h5>Contraseña:</h5>
+
+
+                                    </div>
+                                <div class="col-md-3">  
+                                                <form action="#" method="post" id="registro"></form>
+                                                <input class="form-control" type="text" name="usuario" value="" placeholder=""><br>
+                                                <input class="form-control" type="password" name="contraseña" value="" placeholder=""><span id="show-hide-passwd" action="hide" class="input-group-addon glyphicon glyphicon-eye-open"></span>
+                                                
+                                        
+                                                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+                                                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+                                </div>
+                                <div class="col-md-12">
+                                        <button><a class="btn-iniciar" href="registroplatos.html">Iniciar</a></button>
+                                </div>
+                        </div>
+                </div>                                   
+        </section>
+        <section class="footer" id="contact">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img src="images/imagen12.png" alt="">
+                        </div>
+                        <div class="col-md-12">
+                            <p>CONTACTO: HHHHHHH@UPC.EDU.PE</p>
+                            <p>LIMA, PERU 2019</p>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </section>    
+        
+            <footer class="pie">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>© UPC HUARIQUES. THE PLEASURE OF EATING WELL.</p>
+                        </div>
+                    </div>
+        
+                </div>
+            </footer>  
+</body>
+</html>

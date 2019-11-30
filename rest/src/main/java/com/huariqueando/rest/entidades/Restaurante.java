@@ -12,31 +12,45 @@ import java.util.List;
 @Entity
 @Table(name="restaurantes")
 public class Restaurante implements Serializable {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
-
 	private String direccion;
-
 	private String correo;
-
 	private String identificacion;
-
-	private float latitud;
-
-	private float longitud;
-
 	private String nombre;
-
 	private String telefono;
-
+	private Long distrito_id;
+	private String usuario;
+	private String clave;
 	private String token;
 
 	private Boolean validado;
 
-	//bi-directional many-to-one association to Plato
-	@OneToMany(mappedBy="restaurante")
-	private List<Plato> platos;
+	public Long getDistrito_id() {
+		return distrito_id;
+	}
+
+	public void setDistrito_id(Long distrito_id) {
+		this.distrito_id = distrito_id;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getClave() {
+		return clave;
+	}
+
+	public void setClave(String clave) {
+		this.clave = clave;
+	}
 
 	public Long getId() {
 		return id;
@@ -60,22 +74,6 @@ public class Restaurante implements Serializable {
 
 	public void setIdentificacion(String identificacion) {
 		this.identificacion = identificacion;
-	}
-
-	public float getLatitud() {
-		return latitud;
-	}
-
-	public void setLatitud(float latitud) {
-		this.latitud = latitud;
-	}
-
-	public float getLongitud() {
-		return longitud;
-	}
-
-	public void setLongitud(float longitud) {
-		this.longitud = longitud;
 	}
 
 	public String getNombre() {
@@ -116,13 +114,5 @@ public class Restaurante implements Serializable {
 
 	public void setCorreo(String correo) {
 		this.correo = correo;
-	}
-
-	public List<Plato> getPlatos() {
-		return platos;
-	}
-
-	public void setPlatos(List<Plato> platos) {
-		this.platos = platos;
 	}
 }
