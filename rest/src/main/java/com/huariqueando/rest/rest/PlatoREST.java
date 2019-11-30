@@ -34,4 +34,6 @@ public class PlatoREST {
         return platoNegocio.registrarPlatoRestaurante(plato);
     }
 
+
+
 }
