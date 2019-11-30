@@ -25,10 +25,25 @@ public class Cliente implements Serializable {
 
 	private String token;
 
-	private byte validado;
+	private boolean validado;
 
 
 
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getClave() {
+		return clave;
+	}
+
+	public void setClave(String clave) {
+		this.clave = clave;
+	}
 
 	public Long getId() {
 		return id;
@@ -62,12 +77,11 @@ public class Cliente implements Serializable {
 		this.token = token;
 	}
 
-	public byte getValidado() {
+	public boolean isValidado() {
 		return validado;
 	}
 
-	public void setValidado(byte validado) {
+	public void setValidado(boolean validado) {
 		this.validado = validado;
 	}
-
 }
