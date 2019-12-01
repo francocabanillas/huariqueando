@@ -2,7 +2,7 @@
                     HEADER STYLES
 ---------------------------------------------------------------*/
 .navbar-brand {
-	color: #393f4a !important;
+	color: snow !important;
 	margin: 0;
 	font-size: 42px;
 	font-family: Pacifico;
@@ -61,4 +61,16 @@ footer
 	background-color: #2f2f2f;
 	color: antiquewhite;
 	text-align: center;
+}
+.login 
+{
+	border: 1px solid tan;
+	border-radius: 5px;
+	padding: 10px;
+	width: 300px;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background-color: #393f4a;
 }

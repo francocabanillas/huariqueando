@@ -18,166 +18,261 @@
     <link rel="stylesheet" href="css/styleregistroplatos.css">
 </head>
 <body>
-    <header>
-        <section class="header">
-            <div class="container"><br>
-                <div class="row">
-                    <div class="col-md-12">
-                        <a class="navbar-brand" href="#home">Registrar Restaurante</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </header>
+
     <section class="body">
         <div class="container">
-                <div class="row">
-                        <div class="col-md-3">
-                                <h5>Nombre:</h5>
-                                <h5>Razon Social:</h5>
-                                <h5>N° De Identificación:</h5>
-                                <h5>Correo:</h5>
-                                <h5>Direccion:</h5>
-                                <h5>Telefono:</h5><br>
-                                <h5>Horario:</h5>
-                                <h5>Horario De Fin De Semana:</h5>   
-                                <h5>Dias:</h5><br>
-                                <h5>Ubicación</h5> 
-                            </div>
-                        <div class="col-md-3">
-                                <form>
-                                        <form action="#" method="post" id="registro"></form>
-                                        <input type="text" name="nombre" value="" placeholder=""><br>
-                                        <input type="text" name="apellido" value="" placeholder=""><br>
-                                        <input type="text" name="dni" value="" placeholder=""><br>
-                                        <input type="text" name="correo" value="" placeholder=""><br>
-                                        <input type="text" name="direccion" value="" placeholder=""><br>
-                                        <input type="text" name="telefono" value="" placeholder=""><br><br>
-                                        
-                                
-                                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-                                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+            <form class="col-md-12">
+                <a class="navbar-brand col-md-12" href="#home">Registrar Restaurante</a>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="col-md-6">
+                        
+                    <div class="form-group">
+                        <label for="">Nombre:</label>
+                        <input type="text" name="nombre" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                    </div>
 
-                                        <script>
-                                                $('#registro').validate({
-                                                    rules: {
-                                                        nombre: {
-                                                            required: true,
-                                                            minlength: 2
-                                                        },
-                                                        apellido: {
-                                                            required: true,
-                                                            minlength: 2
-                                                        },
-                                                        dni: {
-                                                            required: true,
-                                                            digits: true
-                                                        },
-                                                        correo: {
-                                                            required: true,
-                                                            minlength: 2
-                                                        },
-                                                        direccion: {
-                                                            required: true,
-                                                            digits: true
-                                                        },
-                                                        telefono: {
-                                                            required: true,
-                                                            minlength: 3
-                                                        }
-                                                    },
-                                                    messages: {
-                                                        nombre: {
-                                                            required: 'Campo requerido',
-                                                            minlength: 'Minimo 2 letras'
-                                                        },
-                                                        apellido: {
-                                                            required: 'Campo requerido',
-                                                            minlength: 'Minimo 2 letras'
-                                                        },
-                                                        dni: {
-                                                            required: 'Campo requerido',
-                                                            minlength: ''
-                                                        },
-                                                        correo: {
-                                                            required: 'Campo requerido',
-                                                            minlength: 'Minimo 2 letras'
-                                                        },
-                                                        direccion: {
-                                                            required: 'Campo requerido',
-                                                            minlength: ''
-                                                        },
-                                                        telefono: {
-                                                            required: 'Campo requerido',
-                                                            minlength: 'Minimo 3 letras'
-                                                        }
-                                                    }
-                                                });
-                                            
-                                            </script>
-                                    <select name="horario1">
-                                        <option>01:00</option><option>02:00</option><option>03:00</option><option>04:00</option><option>05:00</option><option>06:00</option>
-                                        <option>07:00</option><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option>
-                                        <option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17.00</option><option>18:00</option>
-                                        <option>19:00</option><option>20:00</option><option>21:00</option><option>22:00</option><option>23:00</option><option>24.00</option>
-                                    </select>
-                                    <select name="horario2">
+                    <div class="form-group ">
+                            <label for="">Razon social:</label>
+                            <input type="text" name="apellido" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                    </div>
+
+                    <div class="form-group ">
+                            <label for="">Identificación:</label>
+                            <input type="text" name="dni" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                    </div>
+
+                    <div class="form-group">
+                            <label for="">Correo:</label>
+                            <input type="text" name="correo" id="" class="form-control" placeholder="" aria-describedby="helpId" disabled>
+                    </div>
+                    <div class="form-group">
+                            <label for="">Direccion:</label>
+                            <input type="text" name="direccion" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                    </div>
+                    <div class="form-group">
+                            <label for="">Telefono:</label>
+                            <input type="text" name="telefono" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                    </div>
+                    
+
+
+
+                        <script>
+                                $('#registro').validate({
+                                    rules: {
+                                        nombre: {
+                                            required: true,
+                                            minlength: 2
+                                        },
+                                        apellido: {
+                                            required: true,
+                                            minlength: 2
+                                        },
+                                        dni: {
+                                            required: true,
+                                            digits: true
+                                        },
+                                        correo: {
+                                            required: true,
+                                            minlength: 2
+                                        },
+                                        direccion: {
+                                            required: true,
+                                            digits: true
+                                        },
+                                        telefono: {
+                                            required: true,
+                                            minlength: 3
+                                        }
+                                    },
+                                    messages: {
+                                        nombre: {
+                                            required: 'Campo requerido',
+                                            minlength: 'Minimo 2 letras'
+                                        },
+                                        apellido: {
+                                            required: 'Campo requerido',
+                                            minlength: 'Minimo 2 letras'
+                                        },
+                                        dni: {
+                                            required: 'Campo requerido',
+                                            minlength: ''
+                                        },
+                                        correo: {
+                                            required: 'Campo requerido',
+                                            minlength: 'Minimo 2 letras'
+                                        },
+                                        direccion: {
+                                            required: 'Campo requerido',
+                                            minlength: ''
+                                        },
+                                        telefono: {
+                                            required: 'Campo requerido',
+                                            minlength: 'Minimo 3 letras'
+                                        }
+                                    }
+                                });
+                            
+                            </script>
+                        
+    
+                         
+                        
+
+                         
+                         
+                        
+                    </div>
+                    <div class="col-md-6">
+
+                            <div class="form-group">
+                                    <label for="">Horario:</label>
+                                    <br>
+                                    <select name="horario1" class="col-md-3">
                                             <option>01:00</option><option>02:00</option><option>03:00</option><option>04:00</option><option>05:00</option><option>06:00</option>
                                             <option>07:00</option><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option>
                                             <option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17.00</option><option>18:00</option>
                                             <option>19:00</option><option>20:00</option><option>21:00</option><option>22:00</option><option>23:00</option><option>24.00</option>
-                                        </select><br><br>
-                                        <select name="horario3">
-                                                <option>01:00</option><option>02:00</option><option>03:00</option><option>04:00</option><option>05:00</option><option>06:00</option>
-                                                <option>07:00</option><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option>
-                                                <option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17.00</option><option>18:00</option>
-                                                <option>19:00</option><option>20:00</option><option>21:00</option><option>22:00</option><option>23:00</option><option>24.00</option>
-                                            </select>
-                                            <select name="horario4">
-                                                    <option>01:00</option><option>02:00</option><option>03:00</option><option>04:00</option><option>05:00</option><option>06:00</option>
-                                                    <option>07:00</option><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option>
-                                                    <option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17.00</option><option>18:00</option>
-                                                    <option>19:00</option><option>20:00</option><option>21:00</option><option>22:00</option><option>23:00</option><option>24.00</option>
-                                                </select><br>
-                                </form>
-                                 <label><input type="checkbox" id="chbox1" value="checkbox1">Lunes</label>
-                                 <label><input type="checkbox" id="chbox1" value="checkbox1">Martes</label>    
-                                 <label><input type="checkbox" id="chbox1" value="checkbox1">Miercoles</label>    
-                                 <label><input type="checkbox" id="chbox1" value="checkbox1">Jueves</label> 
-                                 <label><input type="checkbox" id="chbox1" value="checkbox1">Viernes</label>    
-                                 <label><input type="checkbox" id="chbox1" value="checkbox1">Sabado</label>    
-                                 <label><input type="checkbox" id="chbox1" value="checkbox1">Domingo</label>                                     
+                                    </select>
+                                    <label for="" class="col-md-1">-</label>
+                                    <select name="horario2" class="col-md-3">
+                                            <option>01:00</option><option>02:00</option><option>03:00</option><option>04:00</option><option>05:00</option><option>06:00</option>
+                                            <option>07:00</option><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option>
+                                            <option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17.00</option><option>18:00</option>
+                                            <option>19:00</option><option>20:00</option><option>21:00</option><option>22:00</option><option>23:00</option><option>24.00</option>
+                                    </select><br>
+        
+                            </div>
+        
+                            <div class="form-group">
+                                    <label for="">Horario de fin de semana:</label>
+                                    <br>
+                                    <select name="horario3" class="col-md-3">
+                                            <option>01:00</option><option>02:00</option><option>03:00</option><option>04:00</option><option>05:00</option><option>06:00</option>
+                                            <option>07:00</option><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option>
+                                            <option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17.00</option><option>18:00</option>
+                                            <option>19:00</option><option>20:00</option><option>21:00</option><option>22:00</option><option>23:00</option><option>24.00</option>
+                                    </select>
+                                    <label for="" class="col-md-1">-</label>
+                                    <select name="horario4" class="col-md-3">
+                                            <option>01:00</option><option>02:00</option><option>03:00</option><option>04:00</option><option>05:00</option><option>06:00</option>
+                                            <option>07:00</option><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option>
+                                            <option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17.00</option><option>18:00</option>
+                                            <option>19:00</option><option>20:00</option><option>21:00</option><option>22:00</option><option>23:00</option><option>24.00</option>
+                                    </select><br>
+        
+                            </div>
+                            <div class="form-check" class="col-md-6" >
+                                    <label for=""  >Distrito:</label>
+                                    <br>
+                                    <select name="horario1" class="col-md-12">
+                                            <option>San Miguel</option>
+                                            <option>San Borja</option>
+                                            <option>Lince</option>
+                                            <option>Comas</option>
+                                            <option>Cercado</option>
+                                    </select>
+                            </div>
 
-                        </div>
-                        <div class="col-md-6">
-                            <h4>Registra Las Especialidades De Tu Restaurante:</h4>
-                            <button id="btn-abrir-popup" class="btn-abrir-popup">Agregar</button>
+                            <div class="custom-control custom-checkbox">
+                                    <br>
+                                    <br>
+                                <label for=""  >Días:</label>
+                                <br>
+                                <label><input type="checkbox" class="custom-control-input" id="chbox1" value="checkbox1">Lunes</label>
+                                <label><input type="checkbox" class="custom-control-input" id="chbox1" value="checkbox1">Martes</label>    
+                                <label><input type="checkbox" class="custom-control-input" id="chbox1" value="checkbox1">Miercoles</label>    
+                                <label><input type="checkbox" class="custom-control-input" id="chbox1" value="checkbox1">Jueves</label> 
+                                <label><input type="checkbox" class="custom-control-input" id="chbox1" value="checkbox1">Viernes</label>    
+                                <label><input type="checkbox" class="custom-control-input" id="chbox1" value="checkbox1">Sabado</label>    
+                                <label><input type="checkbox" class="custom-control-input" id="chbox1" value="checkbox1">Domingo</label>
+                            </div>
 
-                        </div>
+                            <div class="form-group">
+                                    <div class="col-md-2">
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15606.043073718743!2d-77.09098035!3d-12.0771453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2spe!4v1572771570720!5m2!1ses-419!2spe" width="500" height="170" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                                        </div>
+            
+                                        <br>
+                                        
+                            </div>
+                            <div class="form-group">
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <div class="form-group">
+                                            <button type="submit" class="form-control btn btn-success">Imprimir Codigo QR</button>
+                                    </div>   
+                                    
+                            </div>
+                                   
                             
-                </div>
+                    </div>
+
+                    <div class="col-md-12">
+                            <div class="col-md-5">
+                                <h3>Registra tus mejores platos</h3>
+                                <div class="form-group">
+                                        <button type="submit" id="btn-abrir-popup" class="form-control btn btn-success btn-abrir-popup">Agregar plato</button>
+                                </div>  
+                            </div>
+                            
+                            
+                            <table border="1" class="table table-hover table-bordered" style="background-color: honeydew;">
+                                <thead style="background-color: saddlebrown; color: floralwhite;">
+                                    <tr>
+                                         <th>Id</th>
+                                         <th>Nombre</th>
+                                         <th>Etiqueta</th>
+                                         <th>Precio</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                            <th>1</th>
+                                            <th>Arroz con Pollo</th>
+                                            <th>Precio de oferta</th>
+                                            <th>15.5</th>
+                                    </tr> 
+                                    <tr>
+                                            <th>2</th>
+                                            <th>Arroz con legumbres</th>
+                                            <th>Nutritivo</th>
+                                            <th>6</th>
+                                    </tr> 
+                                </tbody>
+                            </table>
+   
+   
+                           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+                           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+                           <br>
+                           <br>
+                           <br>
+                           <br>
+                           <br>
+                           <br>
+                           <br>
+                           <br>
+                           <div class="form-group">
+                                   <button type="submit" class="form-control btn btn-primary">Guardar</button>
+                           </div>  
+                    </div>
+
+                    </form>
 
         </div>
     </section>
-    <section class="google_map">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15606.043073718743!2d-77.09098035!3d-12.0771453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2spe!4v1572771570720!5m2!1ses-419!2spe" width="900" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                </div>   
-            </div>
-        </div> 
-    </section>
-    <section class="footer">
-        <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <button><a class="btn-dark" href="#">Imprimir Codigo QR</a></button>
-                        <button><a class="btn-dark" href="index.html">Regresar</a></button>
-                    </div>
-                </div>
-        </div>
-    </section>
+
+
     <div class="overlay" id="overlay">
 			<div class="popup" id="popup">
 				<a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>

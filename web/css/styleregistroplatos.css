@@ -16,13 +16,15 @@
 .header
 {
 	background-color: #f8bc3b;
-	height: 100px;
+	height: 100%;
+	width: 100%;
 }
 /*----------------------body--------------------*/
 .body
 {
 	background-color: #f8bc3b;
-	height: 400px;
+	height: 100%;
+	width: 100%;
 }
 /*boton de registro de plato*/
 .contenedor article .btn-abrir-popup {
@@ -56,8 +58,8 @@
 .footer
 {
     background-color: #f8bc3b;
-    height: 250px;
-
+    height: 100%;
+	width: 100%;
 }
 /*------------------popup-------------------*/
 
@@ -187,3 +189,4 @@
 	from { opacity: 0; }
 	to { opacity: 1; }
 }
+
