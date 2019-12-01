@@ -21,7 +21,7 @@
 
     <section class="body">
         <div class="registro">
-            <form class="col-md-12">
+            <form class="col-md-12" id="baseformulario">
                     <br>
 
                 <a class="navbar-brand col-md-12" href="#home">Registrar Restaurante</a>
@@ -32,8 +32,8 @@
                 <div class="col-md-4">
                         
                     <div class="form-group">
-                        <label for="">Nombre:</label>
-                        <input type="text" name="nombre" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                        <label for="">Nombre de usuario:</label>
+                        <input type="text" name="nombre" id="" class="form-control" placeholder="" aria-describedby="helpId" value="pollosjavierprado" disabled>
                     </div>
 
                     <div class="form-group ">
@@ -48,7 +48,7 @@
 
                     <div class="form-group">
                             <label for="">Correo:</label>
-                            <input type="text" name="correo" id="" class="form-control" placeholder="" aria-describedby="helpId" disabled>
+                            <input type="text" name="correo" id="" class="form-control" placeholder="" aria-describedby="helpId" value="contacto@pollosjprado.com.pe" disabled>
                     </div>
                     <div class="form-group">
                             <label for="">Direccion:</label>
@@ -58,75 +58,6 @@
                             <label for="">Telefono:</label>
                             <input type="text" name="telefono" id="" class="form-control" placeholder="" aria-describedby="helpId">
                     </div>
-                    
-                    
-
-
-
-                        <script>
-                                $('#registro').validate({
-                                    rules: {
-                                        nombre: {
-                                            required: true,
-                                            minlength: 2
-                                        },
-                                        apellido: {
-                                            required: true,
-                                            minlength: 2
-                                        },
-                                        dni: {
-                                            required: true,
-                                            digits: true
-                                        },
-                                        correo: {
-                                            required: true,
-                                            minlength: 2
-                                        },
-                                        direccion: {
-                                            required: true,
-                                            digits: true
-                                        },
-                                        telefono: {
-                                            required: true,
-                                            minlength: 3
-                                        }
-                                    },
-                                    messages: {
-                                        nombre: {
-                                            required: 'Campo requerido',
-                                            minlength: 'Minimo 2 letras'
-                                        },
-                                        apellido: {
-                                            required: 'Campo requerido',
-                                            minlength: 'Minimo 2 letras'
-                                        },
-                                        dni: {
-                                            required: 'Campo requerido',
-                                            minlength: ''
-                                        },
-                                        correo: {
-                                            required: 'Campo requerido',
-                                            minlength: 'Minimo 2 letras'
-                                        },
-                                        direccion: {
-                                            required: 'Campo requerido',
-                                            minlength: ''
-                                        },
-                                        telefono: {
-                                            required: 'Campo requerido',
-                                            minlength: 'Minimo 3 letras'
-                                        }
-                                    }
-                                });
-                            
-                            </script>
-                        
-    
-                         
-                        
-
-                         
-                         
                         
                     </div>
                     <div class="col-md-8">
@@ -135,7 +66,7 @@
                                     <div class="col-md-5" >
                                             <label for=""  >Distrito:</label>
                                             <br>
-                                            <select name="horario1" class="col-md-5" style="color: black;">
+                                            <select id="distritos" name="horario1" class="col-md-5" style="color: black;">
                                                     <option>San Miguel</option>
                                                     <option>San Borja</option>
                                                     <option>Lince</option>
@@ -225,7 +156,30 @@
                                     <br>
                                     <div class="col-md-12">
                                         <div class="col-md-9"><label style="size: 20pt;">Registra tus mejores platos</label></div>
-                                        <div class="col-md-3"><button type="submit" id="btn-abrir-popup" class="form-control btn btn-primary">Agregar plato</button>            </div>
+                                        <div class="col-md-3">
+                                            <button id="btn-abrir-popup" class="btn-abrir-popup form-control btn btn-primary" >Agregar plato</button>
+
+                                            <div class="overlay" id="overlay">
+                                                    <div class="popup" id="popup">
+                                                        <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                                                                <h5>Nombre del plato</h5>
+                                                                <form action="">
+                                                                    <div class="contenedor-inputs">
+                                                                        <input type="text" name="nombreplato" value="" placeholder=""><br>
+                                                                        <h5>Precio S/.</h5>
+                                                                        <input type="text" name="precio" value="" placeholder=""><br>
+                                                                        <h5>Etiqueta</h5>
+                                                                        <input type="text" name="Etiquetas" value="" placeholder=""><br>
+                                                                    </div>
+                                                                    <input type="submit" class="btn-submit" value="Guardar">
+                                                                </form>    
+                                                    
+                                                            
+                                                    </div>
+                                            </div>
+                                            <script src="popup.js"></script>
+
+                                        </div>
                                     </div>
                                     <br>
                                     <br>
@@ -295,24 +249,6 @@
     </section>
 
 
-    <div class="overlay" id="overlay">
-			<div class="popup" id="popup">
-				<a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
-                        <h5>Nombre del plato</h5>
-                        <form action="">
-                            <div class="contenedor-inputs">
-                                <input type="text" name="nombreplato" value="" placeholder=""><br>
-                                <h5>Precio S/.</h5>
-                                <input type="text" name="precio" value="" placeholder=""><br>
-                                <h5>Etiqueta</h5>
-                                <input type="text" name="Etiquetas" value="" placeholder=""><br>
-                            </div>
-                            <input type="submit" class="btn-submit" value="Guardar">
-                        </form>    
-            
-                    
-            </div>
-    </div>
-        <script src="popup.js"></script>
+
 </body>
 </html>

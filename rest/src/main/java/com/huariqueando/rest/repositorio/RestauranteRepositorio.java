@@ -16,4 +16,7 @@ public interface RestauranteRepositorio extends CrudRepository<Restaurante,Long>
 
     @Query("SELECT a FROM Restaurante a WHERE a.usuario=:xnombreUsuario")
     public List<Restaurante> ExisteNombreUsuario(String xnombreUsuario);
+
+    @Query("SELECT a FROM Restaurante a WHERE a.correo=:xcorreo and a.clave=:xclave")
+    public Restaurante ExisteCorreoyClave(String xcorreo, String xclave);
 }

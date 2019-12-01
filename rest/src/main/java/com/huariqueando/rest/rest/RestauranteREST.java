@@ -35,4 +35,14 @@ public class RestauranteREST {
         }
 
     }
+    @GetMapping("/restaurante/iniciasesion")
+    public Restaurante actualizarRestaurante(@RequestBody Restaurante restaurante){
+        try {
+            return restauranteNegocio.iniciarSesion(restaurante.getCorreo(),restaurante.getClave());
+        }
+        catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"No existe usuario");
+        }
+
+    }
 }

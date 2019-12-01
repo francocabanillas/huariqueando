@@ -133,6 +133,10 @@ public class RestauranteNegocio {
         }
     }
 
+    public Restaurante iniciarSesion(String correo, String clave){
+        return restauranteRepositorio.ExisteCorreoyClave(correo,clave);
+    }
+
 
 
 
