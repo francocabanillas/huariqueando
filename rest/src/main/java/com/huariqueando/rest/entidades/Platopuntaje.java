@@ -1,5 +1,7 @@
 package com.huariqueando.rest.entidades;
 
+import org.hibernate.validator.constraints.Range;
+
 import java.io.Serializable;
 import javax.persistence.*;
 
@@ -13,11 +15,12 @@ import javax.persistence.*;
 public class Platopuntaje implements Serializable {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
-	private Long id_cliente;
-	private Long id_plato;
-
-	private byte puntuacion;
+	private Long cliente_id;
+	private Long plato_id;
+	@Range(min = 0,max = 5)
+	private Integer puntuacion;
 
 	public Long getId() {
 		return id;
@@ -27,27 +30,27 @@ public class Platopuntaje implements Serializable {
 		this.id = id;
 	}
 
-	public Long getId_cliente() {
-		return id_cliente;
+	public Long getCliente_id() {
+		return cliente_id;
 	}
 
-	public void setId_cliente(Long id_cliente) {
-		this.id_cliente = id_cliente;
+	public void setCliente_id(Long cliente_id) {
+		this.cliente_id = cliente_id;
 	}
 
-	public Long getId_plato() {
-		return id_plato;
+	public Long getPlato_id() {
+		return plato_id;
 	}
 
-	public void setId_plato(Long id_plato) {
-		this.id_plato = id_plato;
+	public void setPlato_id(Long plato_id) {
+		this.plato_id = plato_id;
 	}
 
-	public byte getPuntuacion() {
+	public Integer getPuntuacion() {
 		return puntuacion;
 	}
 
-	public void setPuntuacion(byte puntuacion) {
+	public void setPuntuacion(Integer puntuacion) {
 		this.puntuacion = puntuacion;
 	}
 }

@@ -15,16 +15,16 @@ public class ClienteRest {
     private ClienteNegocio clienteNegocioNegocio;
 
     @PostMapping("/clienteregistro")
-    public ClienteRegistro registrarRestaurante(@RequestBody ClienteRegistro clienteRegistro){
+    public ClienteRegistro registrarCliente(@RequestBody ClienteRegistro clienteRegistro){
         return clienteNegocioNegocio.registrarClienteInicial(clienteRegistro);
     }
 
-    @GetMapping("/restaurante/{id}")
-    public Cliente obtenerRestaurante(@PathVariable(value = "id") Long id){
+    @GetMapping("/cliente/{id}")
+    public Cliente obtenerCliente(@PathVariable(value = "id") Long id){
         return clienteNegocioNegocio.obtenerCliente(id);
     }
 
-    @PutMapping("/restaurante/actualizar/{id}")
+    @PutMapping("/cliente/actualizar/{id}")
     public Cliente actualizarCliente(@PathVariable(value = "id") Long id, @RequestBody Cliente cliente){
         try {
             cliente.setId(id);

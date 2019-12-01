@@ -2,6 +2,7 @@ package com.huariqueando.rest.rest;
 
 import com.huariqueando.rest.entidades.Distrito;
 import com.huariqueando.rest.entidades.Plato;
+import com.huariqueando.rest.entidades.Platopuntaje;
 import com.huariqueando.rest.entidades.Restaurante;
 import com.huariqueando.rest.negocio.PlatoNegocio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,11 @@ public class PlatoREST {
         restaurante.setId(id);
         plato.setRestaurante(restaurante);
         return platoNegocio.registrarPlatoRestaurante(plato);
+    }
+
+    @PostMapping("/platopuntaje")
+    public Plato registrarPuntuacionPlato(@RequestBody Platopuntaje platopuntaje){
+        return platoNegocio.registrarPuntuacionPlato(platopuntaje);
     }
 
 
