@@ -2,7 +2,7 @@
                     HEADER STYLES
 ---------------------------------------------------------------*/
 .navbar-brand {
-	color: #393f4a !important;
+	color: azure !important;
 	margin: 0;
 	font-size: 42px;
 	font-family: Pacifico;
@@ -24,7 +24,6 @@
 {
 	background-color: #f8bc3b;
 	height: 100%;
-	width: 100%;
 }
 /*boton de registro de plato*/
 .contenedor article .btn-abrir-popup {
@@ -190,3 +189,26 @@
 	to { opacity: 1; }
 }
 
+.registro 
+{
+	border: 1px solid tan;
+	border-radius: 5px;
+	padding: 5px;
+	width: 98%;
+	height: 600px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background-color: #2f2f2f;
+	color: antiquewhite;
+}
+.scrollable
+{
+	height: 205px;
+	overflow: scroll;
+	color: black;
+	position: relative;
+	background-color: white ;
+	align-content: center;
+}
