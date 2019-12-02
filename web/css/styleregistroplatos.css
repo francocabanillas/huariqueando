@@ -2,7 +2,7 @@
                     HEADER STYLES
 ---------------------------------------------------------------*/
 .navbar-brand {
-	color: azure !important;
+	color: teal !important;
 	margin: 0;
 	font-size: 42px;
 	font-family: Pacifico;
@@ -16,14 +16,13 @@
 .header
 {
 	background-color: #f8bc3b;
-	height: 100%;
-	width: 100%;
 }
 /*----------------------body--------------------*/
 .body
 {
 	background-color: #f8bc3b;
 	height: 100%;
+	width: 100%;
 }
 /*boton de registro de plato*/
 .contenedor article .btn-abrir-popup {
@@ -189,7 +188,7 @@
 	to { opacity: 1; }
 }
 
-.registro 
+.baseformulario
 {
 	border: 1px solid tan;
 	border-radius: 5px;
