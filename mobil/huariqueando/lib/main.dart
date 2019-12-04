@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:huariqueando/presentation/pages/rankingRest.dart';
+import 'package:huariqueando/presentation/app.dart';
 
-void main() => runApp(RankingRestaurant());
+
+void main() => runApp(AppBasica());
