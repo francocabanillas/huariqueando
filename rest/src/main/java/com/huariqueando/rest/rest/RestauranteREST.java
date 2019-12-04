@@ -32,15 +32,18 @@ public class RestauranteREST {
 
     @PutMapping("/restaurante/actualizar/{id}")
     public Restaurante actualizarRestaurante(@PathVariable(value = "id") Long id, @RequestBody Restaurante restaurante){
+        System.out.print("f");
         try {
             restaurante.setId(id);
-            return restauranteNegocio.actualizarRestaurante(restaurante);
+            return restauranteNegocio.actualizarRestaurantes(restaurante);
         }
         catch (Exception e){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"No es posible actualizar");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,e.getMessage());
         }
 
     }
+
+
     @PostMapping("/restaurante/iniciasesion")
     @CrossOrigin(origins = "*",methods = {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT})
     public Restaurante actualizarRestaurante(@RequestBody Restaurante restaurante){
