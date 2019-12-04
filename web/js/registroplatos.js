@@ -86,7 +86,7 @@ $(function(){
        $.each(data, function(i, distrito){
            $distritos.append('<option value="'+distrito.id+'" >'+ distrito.nombre +  '</option>');
        });
-       comboSet();
+       
        
      }
      ,error: function(xhr, status, error) {
@@ -125,10 +125,10 @@ function validarplato() {
     return true;
 }
 
-if (comboSet("distrito_idsave").length=0){
-    alert("Actualice un distrito");
-    return true;
-}
+// if (comboSet("distrito_idsave").length=0){
+//     alert("Actualice un distrito");
+//     return true;
+// }
   return false;
 };
 
@@ -169,11 +169,11 @@ function registrarplato()
   }
 
    var id = document.getElementById("idusuario").value;
-   var combo=document.getElementById("distritos");
-   var distrito = combo.options[combo.selectedIndex].value;
+  //  var combo=document.getElementById("distritos");
+  // var distrito = combo.options[combo.selectedIndex].value;
    var plato = JSON.stringify({"nombre": $("#nombreplato").val(), 
    "precio": $("#precioplato").val(), 
-   "distrito_id": getCookie("distrito_idsave"), 
+   "distrito_id": 1,//getCookie("distrito_idsave"), 
    "etiqueta": $("#etiquetaplato").val(),
    "puntuacion": 0});
    $.ajax({
