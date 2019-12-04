@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styleregistroplatos.css">
 </head>
-<body>
+<body style="background-color:  #f8bc3b;">
 
     <section class="body">
         <div class="registro">
@@ -31,11 +31,11 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="">Id:</label>
-                        <input type="text" name="idusuario" id="idusuario" class="form-control" placeholder="" aria-describedby="helpId" value="pollosjavierprado" disabled>
+                        <input type="text" name="idusuario" id="idusuario" class="form-control" placeholder="" aria-describedby="helpId" value="" disabled>
                     </div>
                     <div class="form-group">
                         <label for="">Nombre de usuario:</label>
-                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="" aria-describedby="helpId" value="pollosjavierprado" disabled>
+                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="" aria-describedby="helpId" value="" disabled>
                     </div>
                     <div class="form-group ">
                             <label for="">Razon social:</label>
@@ -48,16 +48,10 @@
 
                     <div class="form-group">
                             <label for="">Correo:</label>
-                            <input type="text" name="correo" id="correo" class="form-control" placeholder="" aria-describedby="helpId" value="contacto@pollosjprado.com.pe" disabled>
+                            <input type="text" name="correo" id="correo" class="form-control" placeholder="" aria-describedby="helpId" value="" disabled>
                     </div>
-                    <div class="form-group">
-                            <label for="">Direccion:</label>
-                            <input type="text" name="direccion" id="direccion" class="form-control" placeholder="" aria-describedby="helpId">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Telefono:</label>
-                        <input type="text" name="telefono" id="telefono" class="form-control" placeholder="" aria-describedby="helpId">
-                    </div>
+
+                    
                         
                     </div>
                     <div class="col-md-8">
@@ -65,7 +59,7 @@
                             <div class="col-md-12">
                                     <div class="col-md-5"><h3>Registra tus mejores platos</h3></div>
                                     <div class="col-md-4"></div>
-                                    <div class="col-md-3"><button id="btn-abrir-popup" class="btn-abrir-popup form-control btn btn-primary" >Agregar plato</button></div>
+                                    <div class="col-md-3"><a id="btn-abrir-popup" class="btn-abrir-popup form-control btn btn-primary" >Agregar plato</a></div>
                                     
                                     <div class="col-md-12">
                                             <br>
@@ -77,6 +71,8 @@
                                                             <th>Nombre</th>
                                                             <th>Etiqueta</th>
                                                             <th>Precio</th>
+                                                            <th>Acciones</th>
+                                                            <th>Puntuacion</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="platos">
@@ -85,22 +81,12 @@
                                         </div>
                                     </div>
                                 </div>
+                                <br>
+
                         <div class="col-md-12">
+
                             <div class="col-md-12">
-                                <div class="col-md-5" >
-                                        <label for=""  >Distrito:</label>
-                                        <br>
-                                        <select id="distritos" name="horario1" class="distritos" style="color: black;">
-                                               
-                                        </select>
-                                </div>
-                                <div class="col-md-4">
-    
-                                </div>
-                                <div class="col-md-3">
-                                        <button type="submit" class="form-control btn btn-primary ">Imprimir QR</button>
-                                        
-                                </div>
+
                             </div>
                         </div>
 
@@ -109,57 +95,6 @@
                          <br>
                          <div class="col-md-12">
                             <div class="col-md-12">
-                                <!-- <div class="col-md-5" >
-                                    <div class="custom-control custom-checkbox">
-                                            <br>
-                                            <br>
-                                        <label for=""  >Días:</label>
-                                        <br>
-                                        <label><input type="checkbox" class="custom-control-input" id="chbox1" value="checkbox1">Lunes</label>
-                                        <label><input type="checkbox" class="custom-control-input" id="chbox1" value="checkbox1">Martes</label>    
-                                        <label><input type="checkbox" class="custom-control-input" id="chbox1" value="checkbox1">Miercoles</label>    
-                                        <label><input type="checkbox" class="custom-control-input" id="chbox1" value="checkbox1">Jueves</label> 
-                                        <label><input type="checkbox" class="custom-control-input" id="chbox1" value="checkbox1">Viernes</label>    
-                                        <label><input type="checkbox" class="custom-control-input" id="chbox1" value="checkbox1">Sabado</label>    
-                                        <label><input type="checkbox" class="custom-control-input" id="chbox1" value="checkbox1">Domingo</label>
-                                    </div>    
-                                        
-                                </div>
-                                <div class="form-group" >
-                                    <label for="">Horario:</label>
-                                    <br>
-                                    <select name="horario1" class="col-md-3" style="color: black;">
-                                            <option>01:00</option><option>02:00</option><option>03:00</option><option>04:00</option><option>05:00</option><option>06:00</option>
-                                            <option>07:00</option><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option>
-                                            <option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17.00</option><option>18:00</option>
-                                            <option>19:00</option><option>20:00</option><option>21:00</option><option>22:00</option><option>23:00</option><option>24.00</option>
-                                    </select>
-                                    <label for="" class="col-md-1">-</label>
-                                    <select name="horario2" class="col-md-3" style="color: black;">
-                                            <option>01:00</option><option>02:00</option><option>03:00</option><option>04:00</option><option>05:00</option><option>06:00</option>
-                                            <option>07:00</option><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option>
-                                            <option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17.00</option><option>18:00</option>
-                                            <option>19:00</option><option>20:00</option><option>21:00</option><option>22:00</option><option>23:00</option><option>24.00</option>
-                                    </select><br>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Horario de fin de semana:</label>
-                                    <br>
-                                    <select name="horario3" class="col-md-3" style="color: black;">
-                                            <option>01:00</option><option>02:00</option><option>03:00</option><option>04:00</option><option>05:00</option><option>06:00</option>
-                                            <option>07:00</option><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option>
-                                            <option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17.00</option><option>18:00</option>
-                                            <option>19:00</option><option>20:00</option><option>21:00</option><option>22:00</option><option>23:00</option><option>24.00</option>
-                                    </select>
-                                    <label for="" class="col-md-1">-</label>
-                                    <select name="horario4" class="col-md-3" style="color: black;">
-                                            <option>01:00</option><option>02:00</option><option>03:00</option><option>04:00</option><option>05:00</option><option>06:00</option>
-                                            <option>07:00</option><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option>
-                                            <option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17.00</option><option>18:00</option>
-                                            <option>19:00</option><option>20:00</option><option>21:00</option><option>22:00</option><option>23:00</option><option>24.00</option>
-                                    </select><br>
-            
-                                </div> -->
                             </div>
                         </div>
                         <br>
@@ -174,15 +109,16 @@
                                             <div class="popup" id="popup">
                                                 <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
                                                         <h5>Nombre del plato</h5>
-                                                        <form action="">
+                                                        <form>
                                                             <div class="contenedor-inputs">
-                                                                <input type="text" name="nombreplato" value="" placeholder=""><br>
+                                                                <input type="text" name="nombreplato" id="nombreplato" value="" placeholder=""><br>
                                                                 <h5>Precio S/.</h5>
-                                                                <input type="text" name="precio" value="" placeholder=""><br>
+                                                                <input type="text" name="precio" id="precioplato" value="" placeholder=""><br>
                                                                 <h5>Etiqueta</h5>
-                                                                <input type="text" name="Etiquetas" value="" placeholder=""><br>
+                                                                <input type="text" name="etiqueta" id="etiquetaplato" value="" placeholder=""><br>
                                                             </div>
-                                                            <input type="submit" class="btn-submit" value="Guardar">
+                                                            <br>
+                                                            <a type="button" id="btn-cerrar-popup" class="btn-cerrar-popup" value="Guardar" onclick="registrarplato()" href="#" > Guardar</a>
                                                         </form>    
                                             
                                                     
@@ -201,20 +137,79 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-6">
+                        <div class="col-md-4">
                         <div class="form-group">
-                             <button type="submit" class="form-control btn btn-primary">Guardar cambios</button>
+                                <label for="">Direccion:</label>
+                                <input type="text" name="direccion" id="direccion" class="form-control" placeholder="" aria-describedby="helpId">
                         </div>
-                    </div>
+                                <div class="form-group">
+                                        <label for="">Telefono:</label>
+                                        <input type="text" name="telefono" id="telefono" class="form-control" placeholder="" aria-describedby="helpId">
+                                </div>
+                            
+                        </div>
+                    
+                        <div class="col-md-8">
+                                <div class="col-md-12">
+                            <div class="col-md-5" >
+                                    <label for=""  >Distrito:</label>
+                                    <br>
+                                    <select id="distritos" name="horario1" class="distritos" style="color: black;" onchange="comboselect();">
+                                           
+                                    </select>
+                            </div>
+                            <div class="col-md-4">
+
+                            </div>
+                            
+                            <div class="col-md-3">
+                                    <a id="descargarCodigo" class="form-control btn btn-primary " onclick="imprimirqr()">Imprimir QR</a>
+                                    
+                            </div>
+                        </div>
+                            <br>
+                            <br>
+                            <br>
+                    
+                            <div class="col-md-12">
+                                    <div class="col-md-5" >
+                                            <div class="form-group">
+                                                    <label for="">Estado:</label>
+                                                    <input type="text" name="estado" id="estado" class="form-control" placeholder="" aria-describedby="helpId" disabled>
+                                            </div>
+                                    </div>
+                                    
+                                    
+                                    <div class="col-md-5">
+                                            <div class="form-group">
+                                                    <label for="">Ingresar codigo verificación:</label>
+                                                    <input type="text" name="token" id="token" class="form-control" placeholder="" aria-describedby="helpId">
+                                            </div>
+                                    </div>
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-3"></div>
+                        
+                    
                 </div>
+                <div class="col-md-6">
+                        <div class="form-group">
+                         <a type="button" class="form-control btn btn-primary" href="#" onclick="actualizarcliente()" >Guardar cambios</a>
+                        </div>
+                        <div id="codigoQR"></div>
+                    </div>
+                    
             </form>
+            
         </div>
+    </div>
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
     <script src="js/registroplatos.js"></script>  
+    <script src="js/qrcode.js"></script> 
 
 </body>
 </html>

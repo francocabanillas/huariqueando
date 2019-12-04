@@ -1,7 +1,7 @@
 package com.huariqueando.rest.entidades;
 
 public class ClienteRegistro {
-    public enum tipoEstado {pendiente,contraseñaCorta,existeUsuario,existeCorreo,Guardado, correoVacio,usuarioVacio,otrosErrores,
+        public enum tipoEstado {pendiente,contraseñaCorta,existeUsuario,existeCorreo,Guardado, correoVacio,usuarioVacio,otrosErrores,
         registroExitoso}
 
     private String usuario;

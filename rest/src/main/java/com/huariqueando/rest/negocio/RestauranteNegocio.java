@@ -87,6 +87,7 @@ public class RestauranteNegocio {
         restaurante.setCorreo(restauranteRegistro.getCorreo());
         restaurante.setNombre(restauranteRegistro.getUsuario());
         restaurante.setValidado(false);
+        restaurante.setToken("");
         restaurante.setUsuario(restauranteRegistro.getUsuario());
         restaurante.setClave(restauranteRegistro.getClave());
         restauranteRegistro.setRestaurante(restauranteRepositorio.save(restaurante));
@@ -130,8 +131,7 @@ public class RestauranteNegocio {
             restaurante.setUsuario(p.getUsuario());
             restaurante.setClave(p.getClave());
             restaurante.setCorreo(p.getCorreo());
-            restaurante.setToken(p.getToken());
-            restaurante.setValidado(p.getValidado());
+            restaurante.setValidado(restaurante.getToken().length()>0);
             return restauranteRepositorio.save(restaurante);
         } else {
             return null;
