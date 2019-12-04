@@ -23,7 +23,7 @@ public class JmsOyente {
             Platopuntaje platopuntaje =  mapper.readValue(mensajeJson, Platopuntaje.class);
             //platopuntaje.setMensaje("Puntaje calificado");
             System.out.println(mensajeJson);
-            Plato respuesta = negocio.registrarPuntuacionPlato(platopuntaje);//registra en la base de  datos
+            Platopuntaje respuesta = negocio.registrarPuntuacionPlato(platopuntaje);//registra en la base de  datos
             if (respuesta==null) {
                 System.out.println("Calificacion rechazada");
             }

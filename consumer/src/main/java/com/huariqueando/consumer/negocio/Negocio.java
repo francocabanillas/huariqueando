@@ -51,10 +51,10 @@ public class Negocio {
     }
 
     @Transactional
-    public Plato registrarPuntuacionPlato(Platopuntaje platopuntaje){
+    public Platopuntaje registrarPuntuacionPlato(Platopuntaje platopuntaje){
         Plato platoActual = new Plato();
         if (superoTopeInvitado(platopuntaje.getCliente_id())){
-            return platoActual;
+            return platopuntaje;
         }
 
         platoActual=platoRepositorio.findById(platopuntaje.getPlato_id()).get();
@@ -62,11 +62,11 @@ public class Negocio {
             platoPuntajeRepositorio.save(platopuntaje);
             platoActual =  recalcularPuntaje(platopuntaje.getPlato_id());
 
-            return platoActual;
+            return platopuntaje;
         }
         else
         {
-            return platoActual;
+            return platopuntaje;
         }
 
     }
