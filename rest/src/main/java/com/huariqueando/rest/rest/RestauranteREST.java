@@ -36,7 +36,8 @@ public class RestauranteREST {
         }
 
     }
-    @GetMapping("/restaurante/iniciasesion")
+    @PostMapping("/restaurante/iniciasesion")
+    @CrossOrigin(origins = "*",methods = {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT})
     public Restaurante actualizarRestaurante(@RequestBody Restaurante restaurante){
         try {
             return restauranteNegocio.iniciarSesion(restaurante.getCorreo(),restaurante.getClave());
