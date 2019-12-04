@@ -119,6 +119,11 @@ public class RestauranteNegocio {
     }
 
 
+    public List<Restaurante> obtenerRestaurantes(){
+        return (List<Restaurante>) restauranteRepositorio.findAll();
+    }
+
+
     public Restaurante actualizarRestaurante(Restaurante restaurante) {
         Restaurante p = restauranteRepositorio.findById(restaurante.getId()).get();
         if (p != null) {

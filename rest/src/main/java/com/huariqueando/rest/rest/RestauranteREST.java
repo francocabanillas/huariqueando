@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = "*",methods = {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT})
@@ -24,6 +26,9 @@ public class RestauranteREST {
     public Restaurante obtenerRestaurante(@PathVariable(value = "id") Long id){
         return restauranteNegocio.obtenerRestaurante(id);
     }
+
+    @GetMapping("/restaurantes")
+    public List<Restaurante> obteRestaurantes(){ return restauranteNegocio.obtenerRestaurantes();}
 
     @PutMapping("/restaurante/actualizar/{id}")
     public Restaurante actualizarRestaurante(@PathVariable(value = "id") Long id, @RequestBody Restaurante restaurante){
