@@ -1,19 +1,24 @@
 package com.huariqueando.rest.negocio;
 
 import com.huariqueando.rest.entidades.Distrito;
+import com.huariqueando.rest.entidades.Plato;
 import com.huariqueando.rest.entidades.Restaurante;
 import com.huariqueando.rest.entidades.RestauranteRegistro;
+import com.huariqueando.rest.repositorio.PlatoRepositorio;
 import com.huariqueando.rest.repositorio.RestauranteRepositorio;
 import com.huariqueando.rest.util.AccesoUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class RestauranteNegocio {
     @Autowired
     private RestauranteRepositorio restauranteRepositorio;
+    @Autowired
+    private PlatoNegocio platoNegocio;
 
     private AccesoUtil accesoUtil;
 
@@ -120,15 +125,21 @@ public class RestauranteNegocio {
     }
 
 
-    public Restaurante actualizarRestaurante(Restaurante restaurante) {
+
+    public Restaurante actualizarRestaurantes(Restaurante restaurante) {
+        System.out.print("0");
         Restaurante p = restauranteRepositorio.findById(restaurante.getId()).get();
         if (p != null) {
+            System.out.print("1");
             restaurante.setUsuario(p.getUsuario());
             restaurante.setClave(p.getClave());
             restaurante.setCorreo(p.getCorreo());
             restaurante.setValidado(restaurante.getToken().length()>0);
+            System.out.print("2");
+            platoNegocio.ActualizarPlatoDistrito(restaurante);
             return restauranteRepositorio.save(restaurante);
         } else {
+            System.out.print("3");
             return null;
         }
     }

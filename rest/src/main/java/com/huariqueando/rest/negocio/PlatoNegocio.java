@@ -34,7 +34,15 @@ public class PlatoNegocio {
 
     }
 
-
+    public void ActualizarPlatoDistrito(Restaurante restaurante){
+        List<Plato> platos = new ArrayList<>();
+        platos = platoRepositorio.obtenerRestaurantePlatos(restaurante);
+        for (Plato p: platos
+        ) {
+            p.setDistrito_id(restaurante.getDistrito_id());
+            platoRepositorio.save(p);
+        }
+    }
 
     public List<Plato> obtenerPlatos(Long restaurantes_id){
         return (List<Plato>) platoRepositorio.findAll();

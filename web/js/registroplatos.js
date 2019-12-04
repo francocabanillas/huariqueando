@@ -62,7 +62,8 @@ $(function(){
         document.getElementById("direccion").value=data.direccion;
         document.getElementById("telefono").value=data.telefono;
         setCookie("distrito_id",data.distrito_id);
-        console.log(data);
+        combosave();
+        // console.log(data);
         if (data.validado){
           document.getElementById("estado").value="Activo";
         }else{
@@ -77,8 +78,7 @@ $(function(){
      }
   );
 
-    $distritos.append('<option>seleccione</option>');
-    $.ajax({
+     $.ajax({
      type: 'GET',
      dataType: "json",
      url:'http://localhost:8080/api/distritos',
@@ -120,12 +120,25 @@ function validarplato() {
     alert("Ingrese el precio del plato");
     return true;
   }
+  if (document.getElementById("estado").value == 'Por validar'){
+    alert("Valide su restaurante antes de crear platos");
+    return true;
+}
+
+if (comboSet("distrito_idsave").length=0){
+    alert("Actualice un distrito");
+    return true;
+}
   return false;
 };
 
 function comboselect(){
   var combo=document.getElementById("distritos");
   setCookie("distrito_id",combo.options[combo.selectedIndex].value);  
+}
+function combosave(){
+  var combo=document.getElementById("distritos");
+  setCookie("distrito_idsave",combo.options[combo.selectedIndex].value);  
 }
 
 function comboSet(){
@@ -160,7 +173,7 @@ function registrarplato()
    var distrito = combo.options[combo.selectedIndex].value;
    var plato = JSON.stringify({"nombre": $("#nombreplato").val(), 
    "precio": $("#precioplato").val(), 
-   "distrito_id": distrito, 
+   "distrito_id": getCookie("distrito_idsave"), 
    "etiqueta": $("#etiquetaplato").val(),
    "puntuacion": 0});
    $.ajax({
@@ -214,9 +227,17 @@ function actualizarcliente ()
    var restaurante = JSON.stringify({"direccion": document.getElementById("direccion").value, 
    "identificacion": document.getElementById("dni").value, 
    "nombre": document.getElementById("apellido").value, 
-   "telefono": document.getElementById("telefono").value, 
-   "token": document.getElementById("token").value, 
-   "distrito_id": distrito});
+   "telefono": document.getElementById("telefono").value,
+   "distrito_id": distrito,
+   "token": document.getElementById("token").value});
+//    {
+//     "direccion": "Calle Lorenzo 1661",
+//     "identificacion": 15161151,
+//     "nombre": "ronald1232",
+//     "telefono": "1511",
+//     "distrito_id": 1,
+//     "token":""
+// }
    console.log(restaurante);
    $.ajax({
                headers: {  
@@ -229,9 +250,10 @@ function actualizarcliente ()
              data: restaurante,
              success: function (data) {
                 console.log(data);
+                combosave();
                 alert("Datos guardados");                
              },error: function(xhr, status, error) {
-                alert(error);
+                alert("Error");
               }
    });
 }
