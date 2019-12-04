@@ -212,3 +212,18 @@
 	background-color: white ;
 	align-content: center;
 }
+
+#codigoQR{
+	width: 10px;
+	height: 10px;
+	margin-top: 25px;
+	border: 2px solid #eee;
+	visibility: hidden;
+}
+
+#borrar{
+	visibility: hidden;
+}
+#mostrar{
+	visibility: visible;
+}

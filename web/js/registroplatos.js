@@ -10,6 +10,9 @@ $(function(){
     var $correo = $('#correo');
     var $direccion = $('#direccion');
     var $telefono = $('#telefono');
+    
+
+    document.getElementById("descargarCodigo").text='Generar QR';
 
     var id = getCookie("idusuario");
 
@@ -31,6 +34,7 @@ $(function(){
                                 '   <th>'+plato.nombre+'</th>'+
                                 '   <th>'+plato.etiqueta+'</th>'+
                                 '   <th>'+plato.precio+'</th>'+
+                                '   <th> <a type="button" id="'+plato.id+'" value="'+plato.id+'" href="#" > editar</a> - <a type="button" id="'+plato.id+'" value="'+plato.id+'" href="#" > eliminar </a> </th>'+
                                 '   <th>'+plato.puntuacion+'</th>'+
                              '</tr>');
           });
@@ -58,6 +62,13 @@ $(function(){
         document.getElementById("direccion").value=data.direccion;
         document.getElementById("telefono").value=data.telefono;
         setCookie("distrito_id",data.distrito_id);
+        console.log(data);
+        if (data.validado){
+          document.getElementById("estado").value="Activo";
+        }else{
+          document.getElementById("estado").value="Por validar";       
+
+        }
       }
       ,error: function(xhr, status, error) {
          var err = eval("(" + xhr.responseText + ")");
@@ -92,6 +103,26 @@ $(function(){
 
 
 });
+function eliminarplato(){
+  
+}
+
+function eliminarplato(){
+  
+}
+
+function validarplato() {
+  if (document.getElementById("nombreplato").value == ''){
+      alert("Ingrese el nombre del plato");
+      return true;
+  }
+  if (document.getElementById("precioplato").value == ''){
+    alert("Ingrese el precio del plato");
+    return true;
+  }
+  return false;
+};
+
 function comboselect(){
   var combo=document.getElementById("distritos");
   setCookie("distrito_id",combo.options[combo.selectedIndex].value);  
@@ -120,6 +151,10 @@ function getCookie(name) {
 
 function registrarplato()
 {
+  if (validarplato()){
+    return;
+  }
+
    var id = document.getElementById("idusuario").value;
    var combo=document.getElementById("distritos");
    var distrito = combo.options[combo.selectedIndex].value;
@@ -139,11 +174,79 @@ function registrarplato()
              data: plato,
              success: function (data) {
                 alert("Plato registrado");
-                $("#nombreplato").val()='';
-                $("#precioplato").val()='';
-                $("#etiquetaplato").val()='';
+                location.reload();
+                document.getElementById("nombreplato").value='';
+                document.getElementById("precioplato").value='';
+                document.getElementById("etiquetaplato").value='';
+                
+             },error: function(xhr, status, error) {
+                alert("Falta registrar datos");
+              }
+   });
+}
+
+function validarrestaurante() {
+  if (document.getElementById("token").value == ''){
+      alert("Ingrese código de verificacion");
+      return true;
+  }
+
+  var combo=document.getElementById("distritos");
+  if (combo.selectedIndex == -1){
+      alert("Seleccione distrito");
+      return true;
+  }
+
+};
+
+function actualizarcliente ()
+{
+
+  if (validarrestaurante()){
+    return;
+  }
+
+
+  var id = document.getElementById("idusuario").value;
+
+   var combo=document.getElementById("distritos");
+   var distrito = combo.options[combo.selectedIndex].value;
+   var restaurante = JSON.stringify({"direccion": document.getElementById("direccion").value, 
+   "identificacion": document.getElementById("dni").value, 
+   "nombre": document.getElementById("apellido").value, 
+   "telefono": document.getElementById("telefono").value, 
+   "token": document.getElementById("token").value, 
+   "distrito_id": distrito});
+   console.log(restaurante);
+   $.ajax({
+               headers: {  
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json' 
+            }, 
+            type: "PUT",
+             dataType: "json",
+             url:'http://localhost:8080/api/restaurante/actualizar/'+id,             
+             data: restaurante,
+             success: function (data) {
+                console.log(data);
+                alert("Datos guardados");                
              },error: function(xhr, status, error) {
                 alert(error);
               }
    });
+}
+
+function imprimirqr(){
+  var div = document.getElementById('codigoQR');
+  
+  
+  var miCodigoQR = new QRCode("codigoQR");  
+  var id = document.getElementById("idusuario").value;
+  miCodigoQR.clear;
+  
+  miCodigoQR.makeCode(id);
+  document.getElementById("descargarCodigo").text='Descargar QR';
+  var base64 = $("#codigoQR img").attr('src');
+  $("#descargarCodigo").attr('href', base64);
+  $("#descargarCodigo").attr('download', "codigoQR");
 }

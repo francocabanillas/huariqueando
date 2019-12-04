@@ -29,26 +29,23 @@
                                 <br>
                                 <br>
                                 <br>
-                        <form class="col-md-12" action="" method="post">
+                        <div class="col-md-12" >
                                 
                                 <div class="form-group">
-                                        <input class="form-control" type="text" name="nombreusuario" value="" placeholder="Ingrese nombre de usuario"><br>
+                                        <input class="form-control"  id="nombreusuario" type="text" name="nombreusuario" value="" placeholder="Ingrese nombre de usuario"><br>
                                 </div>
                                 <div class="form-group">
-                                        <input class="form-control" type="text" name="numeroidentificacion" value="" placeholder="Ingrese DNI o RUC"><br>
+                                        <input class="form-control"  id="correo" type="email" name="correo" value="" placeholder="Ingrese correo"><br>
                                 </div>
                                 <div class="form-group">
-                                        <input class="form-control" type="email" name="correo" value="" placeholder="Ingrese correo"><br>
+                                        <input class="form-control"  id="clave" type="password" name="clave" value="" placeholder="Ingrese contraseña"><br>
                                 </div>
                                 <div class="form-group">
-                                        <input class="form-control" type="password" name="contraseña" value="" placeholder="Ingrese contraseña"><br>
-                                </div>
-                                <div class="form-group">
-                                        <input class="form-control" type="password" name="repetircontraseña" value="" placeholder="Repetir contraseña"><br><br>
+                                        <input class="form-control"  id="repetirclave" type="password" name="repetirclave" value="" placeholder="Repetir contraseña"><br><br>
                                 </div>
                                 
                                 <div class="form-group">
-                                        <button type="submit" class="form-control btn btn-primary">Registrar</button>
+                                        <a type="button" class="form-control btn btn-primary" href="#" onclick="registrar();">Registrar</a>
                                 </div>   
                                 
                                 <small id="passwordHelpBlock" class="form-text text-muted" style="color:antiquewhite">
@@ -59,7 +56,7 @@
                                 
                                 
 
-                        </form>
+                        </div>
 
                 </div>                                   
         </section>
@@ -72,5 +69,6 @@
 
             </div>
         </section>
+        <script src="js/registro.js"></script>
 </body>
 </html>
