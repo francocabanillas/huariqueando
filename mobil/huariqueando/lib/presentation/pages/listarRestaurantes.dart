@@ -4,6 +4,8 @@ import 'package:http/http.dart'  as http;
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:huariqueando/presentation/pages/listarPlatos.dart';
+
 
 
 class ListarRestaurantes extends StatefulWidget {
@@ -14,7 +16,7 @@ class ListarRestaurantes extends StatefulWidget {
 class _ListarRestaurantesState extends State<ListarRestaurantes> {
 
   Future<List> getData() async{
-    final response = await http.get("http://10.10.10.185:8080/api/restaurantes");
+    final response = await http.get("http://10.10.10.183:8080/api/restaurantes");
     return json.decode(response.body);
   }//
   @override
@@ -55,6 +57,14 @@ class ItemList extends StatelessWidget {
         return new Container(
           padding: const EdgeInsets.all(10.0),
           child: new GestureDetector(
+                onTap: () => Navigator.of(context).push(
+                    new MaterialPageRoute(
+                      builder: (BuildContext context) => new ListarPlatos(
+                        list: list,
+                        index: i,
+                      )
+                    ),
+                  ),
            
             child: new Card(
               elevation: 5.0,
@@ -83,26 +93,8 @@ class ItemList extends StatelessWidget {
                      ),
                       
                     ),
-                    FlatButton(
-                      child: Text('Ver Restaurant'),
-                      onPressed: (){},
-                    )
                   ],
                 ),
-                RatingBar(
-                                  initialRating: 5,
-                                  direction: Axis.horizontal,
-                                  allowHalfRating: true,
-                                  itemCount: 5,
-                                  itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                                  itemBuilder: (context, _) => Icon(
-                                    Icons.star,
-                                    color: Colors.amber,
-                                  ),
-                                  onRatingUpdate: (rating) {
-                                    print(rating);
-                                  },
-                                ),
                 ],
               ),
 

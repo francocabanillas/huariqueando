@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:huariqueando/presentation/pages/listarPlatos.dart';
 import 'package:huariqueando/presentation/pages/listarRestaurantes.dart';
 
 
@@ -16,6 +17,7 @@ class AppBasica extends StatelessWidget {
       home: ListarRestaurantes(),
       routes: <String, WidgetBuilder>{
           '/presentation/pages/listarRestaurantes': (BuildContext context) => new ListarRestaurantes(),
+          '/presentation/pages/listarPlatos':(BuildContext context)=> new ListarPlatos(),
           
       },
     );
